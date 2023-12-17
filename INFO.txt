@@ -1,0 +1,26 @@
+UVa DESI 23/24
+Gonzalo Agúndez Sáez
+[Sublime Text]
+
+
+Datos usados:
+ Utilizo 2 ficheros de datos:
+ 	- Fichero para la generación del mapa. 
+ 		Fuente: Natural Earth Data (https://www.naturalearthdata.com/downloads/110m-cultural-vectors/).
+ 	- Ficher sobre el número de población mundial. 
+ 		Fuente: Our World In Data (https://ourworldindata.org/population-growth)
+
+
+Información resumida sobre los detalles de la visualización:
+ 	1ª Visualización (Choropleth map): Visualización que va a aparacera nada mas entrar. Se trata de un mapamundi que se va a colorear en función de una leyenda que se situa en la parte inferior izquierda del mapa como haría cualquier Choropleth map. Se puede modificar el año que queremos visualizar y por tanto actualizar el mapa gracias al slider que se encuentra en la parte izquierda de la visualización. El año se va a actualizar en al lado del slider así como debajo del titulo. Por último observamos un radio-button en la parte inferior derecha de la pantalla que permite cambiar de visualización a la segunda (gráfico de líneas).
+
+ 	Si pasamos el ratón sobre los paises vamos a observar que los bordes del pais donde se encuentra el raton se van a volver mas visibles y además va a aparecer una nota sobre el raton. En esta nota va a haber el nombre del pais, el número de población del país en dicho año y un gráfico de pastel que tiene como intención poder visualizar que tan joven/mayor se encuentra el pais en ese punto. Esto se representa en 3 sectores: mayores de 60 años, menores de 25 años, otros. Al mover el ratón fuera del pais el pais vuelve a su estado habitual y la nota desaparece.
+
+ 	Si deseamos llegar a los paises mas pequeños es posible realizar zoom con la rueda del raton donde además se tendrá feed-back en vivo en medio de la pantalla sobre que tanto zoom se ha hecho con un límite de hasta x 8 hacia adelante y x 0.8 hacia atras. Para volver al estado base del mapa se habilitará un botón en la parte superior izquierda en caso de que no se encuentre en el estado de zoom estandar.
+
+
+ 	2ª Visualización (Gráfico de líneas): Este gráfico va a analizar el número de población (eje Y) a lo largo de los años 1950 - 2021 (eje X) sobre los continentes. Al mover el raton sobre cualquier punto de la pantalla se va a mover una línea vertical sobre los límites del gráfico que va a representar el punto donde se cogen los datos que se van a representar en la parte superior derecha de la pantalla. De forma añadida en la parte superior de la línea vertical se va a situar el año exacto en el que se encuentra la línea ya que el eje X solo cubre los años de 5 en 5. 
+ 	
+ 	Los datos en la parte superior derecha están ordenados en orden de tamaño en número de población, esto se va a poder apreciar ya que en un punto África supera a Europa.
+ 	
+ 	Por último ha destacar, he añadido una nota que avisa de que los datos en el eje Y no empiezan desde 0 sino desde 10M, esto se debe a que lógicamente si se empezara desde 0 no se apreciarían tan bien todas las líneas sino que se apreciarían muy pequeñas, además que no hay ninguna línea que esté fuera del entorno que he puesto.

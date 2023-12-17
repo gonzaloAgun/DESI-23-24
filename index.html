@@ -1,0 +1,79 @@
+<!-- Gonzalo Agundez Saez DESI LAB 23/24 -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01">
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>UVa-DESI-Analisis de la Poblacion Mundial</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script  type="text/javascript">
+    // Voy a manejar el evento del radio-button desde aqui y llamo a la funcion con el valor correspondiente en el main
+    document.addEventListener("DOMContentLoaded", function(e) {
+      d3.select("#grafico").selectAll("svg").remove();  // Voy a necesitar eliminar lo que haya en el svg para rellenarlo de nuevo
+      eligeDibujar(0);                                  // Empiezo dibujando el mapa
+
+      // En caso de modificar un boton el otro debe cambiarse tambien asi como su informacion interna y actualizarse todo
+      var selec = d3.selectAll("input[type=radio][name=dataSeries]");
+      selec.attr("checked",false);
+      selec.each(function(d,i) {
+        if (this.value == 0) {
+          this["checked"] = true;
+        }
+      });
+      // En caso de cambiar el boton dibujo el mapa con el valor seleccionado
+      selec.on("change", function(event) { 
+        d3.select("#grafico").selectAll("svg").remove();
+        eligeDibujar(event.target.value);
+      });
+    }); 
+
+  </script>
+
+
+</head>
+
+<body>
+
+  <h1>Numero de Poblacion Mundial</h1>
+  <div id="year">Year: 2020</div>
+
+  <div id="radio">
+    <table>
+      <tr>
+        <td>
+          <input name="dataSeries" value="0" type="radio" checked />Mapa</li>
+          <input name="dataSeries" value="1" type="radio" />Grafico de lineas</li>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+
+  <div id="zoomNote">100%</div>
+
+  <div id="slider-container">
+    <div id="slider-line"></div>
+    <div id="slider"></div>
+    <div id="valor-actual">2020</div>
+    <div id="texto-explicativo-slider">YEAR</div>
+    <div id="texto-superior">2021</div>
+    <div id="texto-inferior">1950</div>
+  </div>
+
+  <div id="zoomReset">
+    <input type="buttonResetZoom">
+  </div>
+
+
+  <div id="grafico"></div>
+
+
+  
+  <div id="tooltip"></div>
+
+</body>
+</html>
+
